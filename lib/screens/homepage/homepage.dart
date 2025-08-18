@@ -15,13 +15,27 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Homepage')),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Get.toNamed(RouteName.homeDetail, id: NavIds.home);
-          },
-          child: Text('Go to Detail'),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.all(20),
+                  child: Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Get.toNamed(RouteName.homeDetail, id: NavIds.home);
+                      },
+                      child: Text('Go to Detail'),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

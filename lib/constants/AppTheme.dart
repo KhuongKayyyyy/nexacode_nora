@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:nora/constants/ColorConstants.dart';
 
 class AppTheme {
   static ThemeData get theme {
     return ThemeData(
-      scaffoldBackgroundColor: Colors.white,
+      scaffoldBackgroundColor: ColorConstants.greyColor,
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,

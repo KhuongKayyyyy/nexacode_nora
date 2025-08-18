@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:nora/application/controllers/base_controller.dart';
 import 'package:nora/application/controllers/landing_page_controller.dart';
 import 'package:nora/constants/AppTheme.dart';
-import 'package:nora/screens/landing_pages/landing_page.dart';
+import 'package:nora/screens/base/base_screen.dart';
 
 void main() {
   Get.put<BaseController>(BaseController());
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Nora',
       theme: AppTheme.theme,
-      home: const LandingPage(),
+      home: const BaseScreen(),
     );
   }
 }

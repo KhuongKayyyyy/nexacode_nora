@@ -19,10 +19,13 @@ class _BaseScreenState extends State<BaseScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Obx(
-        () => IndexedStack(
-          index: BaseController.to.currentIndex,
-          children: [HomeNav(), TodayFortuneNav(), DiaryNav(), MoreNav()],
+      body: Padding(
+        padding: EdgeInsets.only(top: 80, left: 16, right: 16, bottom: 20),
+        child: Obx(
+          () => IndexedStack(
+            index: BaseController.to.currentIndex,
+            children: [HomeNav(), TodayFortuneNav(), DiaryNav(), MoreNav()],
+          ),
         ),
       ),
       bottomNavigationBar: AppBottomNavigation(
