@@ -3,8 +3,10 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:nora/constants/NavIds.dart';
 import 'package:nora/constants/RouteName.dart';
+import 'package:nora/screens/more/contact/more_send_message.dart';
 import 'package:nora/screens/more/fortune/fortune_detail_page.dart';
 import 'package:nora/screens/more/more_change_name_page.dart';
+import 'package:nora/screens/more/contact/more_contact_developer.dart';
 import 'package:nora/screens/more/more_coupon_page.dart';
 import 'package:nora/screens/more/fee/more_fee_history.dart';
 import 'package:nora/screens/more/fee/more_fee_page.dart';
@@ -64,6 +66,18 @@ class MoreNav extends StatelessWidget {
           return GetPageRoute(
             settings: settings,
             page: () => MoreChangeNamePage(),
+          );
+        }
+        if (settings.name == RouteName.moreContactDeveloper) {
+          return GetPageRoute(
+            settings: settings,
+            page: () => MoreContactDeveloper(),
+          );
+        }
+        if (settings.name == RouteName.moreSendMessage) {
+          return GetPageRoute(
+            settings: settings,
+            page: () => MoreSendMessage(),
           );
         }
         return GetPageRoute(settings: settings, page: () => MoreLandingPage());

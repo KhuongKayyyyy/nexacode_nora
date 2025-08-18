@@ -14,4 +14,6 @@ class RouteName {
   static const moreFortunePage = "/moreFortunePage";
   static const fortuneDetailPage = "/fortuneDetailPage";
   static const moreChangeNamePage = "/moreChangeNamePage";
+  static const moreContactDeveloper = "/moreContactDeveloper";
+  static const moreSendMessage = "/moreSendMessage";
 }
