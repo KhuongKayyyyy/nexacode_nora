@@ -7,4 +7,5 @@ class RouteName {
   static const landingPage = "/landingPage";
 
   static const moreFee = "/moreFee";
+  static const moreNoticeSetting = "/moreNoticeSetting";
 }

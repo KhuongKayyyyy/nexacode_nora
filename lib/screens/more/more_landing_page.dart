@@ -25,7 +25,11 @@ class MoreLandingPage extends StatelessWidget {
               20.y,
               _buildImagePlaceHolder(),
               10.y,
-              _buildSettingItem(title: "알림 설정", onTap: () {}),
+              _buildSettingItem(
+                title: "알림 설정",
+                onTap: () =>
+                    Get.toNamed(RouteName.moreNoticeSetting, id: NavIds.more),
+              ),
               _buildSettingItem(title: "운세 보관함", onTap: () {}),
               _buildSettingItem(title: "내 쿠폰", onTap: () {}),
               _buildSettingItem(title: "내 젤리", onTap: () {}),
@@ -58,23 +62,26 @@ class MoreLandingPage extends StatelessWidget {
   }
 
   Widget _buildSettingItem({required String title, required Function() onTap}) {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 16),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              AppText(text: title, fontSize: 16, fontWeight: FontWeight.w500),
-              Spacer(),
-              Icon(
-                Icons.arrow_forward_ios,
-                color: ColorConstants.color96,
-                size: 16,
-              ),
-            ],
-          ),
-          Divider(color: ColorConstants.color96, height: 1),
-        ],
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 16),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                AppText(text: title, fontSize: 16, fontWeight: FontWeight.w500),
+                Spacer(),
+                Icon(
+                  Icons.arrow_forward_ios,
+                  color: ColorConstants.color96,
+                  size: 16,
+                ),
+              ],
+            ),
+            Divider(color: ColorConstants.color96, height: 1),
+          ],
+        ),
       ),
     );
   }
