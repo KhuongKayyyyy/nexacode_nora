@@ -79,7 +79,7 @@ class MorePersonalInformation
                         text: "태어난 시간을 몰라",
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
-                        color: ColorConstants.blac,
+                        color: ColorConstants.black,
                       ),
                     ],
                   ),

@@ -8,6 +8,7 @@ import 'package:nora/constants/ColorConstants.dart';
 import 'package:nora/constants/Constants.dart';
 import 'package:nora/constants/RouteName.dart';
 import 'package:nora/constants/NavIds.dart';
+import 'package:nora/screens/more/components/my_fee_item.dart';
 
 class MoreLandingPage extends StatelessWidget {
   const MoreLandingPage({super.key});
@@ -21,7 +22,7 @@ class MoreLandingPage extends StatelessWidget {
           child: Column(
             children: [
               _buildHeadingSection(),
-              _buildProfileSection(),
+              MyFeeItem(),
               20.y,
               _buildImagePlaceHolder(),
               10.y,
@@ -32,7 +33,11 @@ class MoreLandingPage extends StatelessWidget {
               ),
               _buildSettingItem(title: "운세 보관함", onTap: () {}),
               _buildSettingItem(title: "내 쿠폰", onTap: () {}),
-              _buildSettingItem(title: "내 젤리", onTap: () {}),
+              _buildSettingItem(
+                title: "내 젤리",
+                onTap: () =>
+                    Get.toNamed(RouteName.moreFeeHistory, id: NavIds.more),
+              ),
               _buildSettingItem(title: "젤리 내역", onTap: () {}),
               _buildSettingItem(title: "이름 바꾸기", onTap: () {}),
               _buildSettingItem(title: "약관 보기", onTap: () {}),
@@ -82,38 +87,6 @@ class MoreLandingPage extends StatelessWidget {
             Divider(color: ColorConstants.color96, height: 1),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildProfileSection() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Row(
-        children: [
-          Container(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-              color: Color(0xFF00E5CC),
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
-          SizedBox(width: 12),
-          AppText(text: "0 젤리", fontSize: 16, fontWeight: FontWeight.w500),
-          Spacer(),
-          AppButton(
-            width: 57,
-            height: 33,
-            text: "충전",
-            onTap: () => Get.toNamed(RouteName.moreFee, id: NavIds.more),
-          ),
-        ],
       ),
     );
   }
