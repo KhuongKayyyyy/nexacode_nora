@@ -10,4 +10,5 @@ class RouteName {
   static const moreNoticeSetting = "/moreNoticeSetting";
   static const morePersonalInformation = "/morePersonalInformation";
   static const moreFeeHistory = "/moreFeeHistory";
+  static const moreCouponPage = "/moreCouponPage";
 }

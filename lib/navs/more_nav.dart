@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:nora/constants/NavIds.dart';
 import 'package:nora/constants/RouteName.dart';
+import 'package:nora/screens/more/more_coupon_page.dart';
 import 'package:nora/screens/more/more_fee_history.dart';
 import 'package:nora/screens/more/more_fee_page.dart';
 import 'package:nora/screens/more/more_landing_page.dart';
@@ -40,6 +41,9 @@ class MoreNav extends StatelessWidget {
         }
         if (settings.name == RouteName.moreFeeHistory) {
           return GetPageRoute(settings: settings, page: () => MoreFeeHistory());
+        }
+        if (settings.name == RouteName.moreCouponPage) {
+          return GetPageRoute(settings: settings, page: () => MoreCouponPage());
         }
         return GetPageRoute(settings: settings, page: () => MoreLandingPage());
       },

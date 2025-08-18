@@ -32,7 +32,11 @@ class MoreLandingPage extends StatelessWidget {
                     Get.toNamed(RouteName.moreNoticeSetting, id: NavIds.more),
               ),
               _buildSettingItem(title: "운세 보관함", onTap: () {}),
-              _buildSettingItem(title: "내 쿠폰", onTap: () {}),
+              _buildSettingItem(
+                title: "내 쿠폰",
+                onTap: () =>
+                    Get.toNamed(RouteName.moreCouponPage, id: NavIds.more),
+              ),
               _buildSettingItem(
                 title: "내 젤리",
                 onTap: () =>
