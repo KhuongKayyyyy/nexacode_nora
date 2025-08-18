@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nora/application/controllers/base_controller.dart';
-import 'package:nora/screens/base/base_screen.dart';
+import 'package:nora/application/controllers/landing_page_controller.dart';
+import 'package:nora/constants/AppTheme.dart';
+import 'package:nora/screens/landing_pages/landing_page.dart';
 
 void main() {
   Get.put<BaseController>(BaseController());
+  Get.put<LandingPageController>(LandingPageController());
   runApp(const MyApp());
 }
 
@@ -16,10 +19,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Nora',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const BaseScreen(),
+      theme: AppTheme.theme,
+      home: const LandingPage(),
     );
   }
 }

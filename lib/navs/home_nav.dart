@@ -18,6 +18,9 @@ class HomeNav extends StatelessWidget {
         if (settings.name == RouteName.homeDetail) {
           return GetPageRoute(settings: settings, page: () => HomeDetailPage());
         }
+        if (settings.name == RouteName.home) {
+          return GetPageRoute(settings: settings, page: () => Homepage());
+        }
         return GetPageRoute(settings: settings, page: () => Homepage());
       },
     );

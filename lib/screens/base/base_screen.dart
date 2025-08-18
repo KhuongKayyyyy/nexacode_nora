@@ -4,8 +4,7 @@ import 'package:nora/application/controllers/base_controller.dart';
 import 'package:nora/components/AppBottomNavigation.dart';
 import 'package:nora/navs/home_nav.dart';
 import 'package:nora/navs/today_fortune_nav.dart';
-import 'package:nora/screens/homepage/homepage.dart';
-import 'package:nora/screens/today_fortune/today_fortune.dart';
+
 import 'package:nora/navs/diary_nav.dart';
 import 'package:nora/navs/more_nav.dart';
 

@@ -61,7 +61,7 @@ class AppButton extends StatelessWidget {
       decoration: BoxDecoration(
         color: disabled ?? false
             ? disableColor ?? ColorConstants.appGrayBG
-            : color ?? ColorConstants.appColor,
+            : color ?? ColorConstants.btnDefaultColor,
         border: border,
         borderRadius: BorderRadius.circular(borderRadius ?? 40),
       ),
@@ -70,7 +70,7 @@ class AppButton extends StatelessWidget {
         child: Material(
           color: disabled ?? false
               ? disableColor ?? ColorConstants.appGrayMiddle
-              : color ?? ColorConstants.appColor,
+              : color ?? ColorConstants.btnDefaultColor,
           child: InkWell(
             onTap: disabled ?? false ? () {} : onTap,
             child: Center(
@@ -97,7 +97,7 @@ class AppButton extends StatelessWidget {
                       letterSpacing: 0.02,
                       color: disabled ?? false
                           ? disableTextColor ?? ColorConstants.white
-                          : textColor ?? ColorConstants.appBlack,
+                          : textColor ?? ColorConstants.white,
                     ),
                   ),
                 ],
