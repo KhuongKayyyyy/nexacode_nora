@@ -5,8 +5,8 @@ class AppTheme {
   static ThemeData get theme {
     return ThemeData(
       scaffoldBackgroundColor: ColorConstants.greyColor,
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.white,
+      appBarTheme: AppBarTheme(
+        backgroundColor: ColorConstants.greyColor,
         foregroundColor: Colors.black,
         elevation: 0,
       ),

@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:nora/application/utils/extension/extensions.dart';
 import 'package:nora/components/AppButton.dart';
 import 'package:nora/components/AppText.dart';
 import 'package:nora/constants/ColorConstants.dart';
+import 'package:nora/constants/Constants.dart';
+import 'package:nora/constants/RouteName.dart';
+import 'package:nora/constants/NavIds.dart';
 
 class MoreLandingPage extends StatelessWidget {
   const MoreLandingPage({super.key});
@@ -11,25 +16,28 @@ class MoreLandingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            _buildHeadingSection(),
-            _buildProfileSection(),
-            20.y,
-            _buildImagePlaceHolder(),
-            10.y,
-            _buildSettingItem(title: "알림 설정", onTap: () {}),
-            _buildSettingItem(title: "운세 보관함", onTap: () {}),
-            _buildSettingItem(title: "내 쿠폰", onTap: () {}),
-            _buildSettingItem(title: "내 젤리", onTap: () {}),
-            _buildSettingItem(title: "젤리 내역", onTap: () {}),
-            _buildSettingItem(title: "이름 바꾸기", onTap: () {}),
-            _buildSettingItem(title: "약관 보기", onTap: () {}),
-            _buildSettingItem(title: "개발자에게 문의하기", onTap: () {}),
-            _buildSettingItem(title: "광고 정확도 올리기", onTap: () {}),
-            _buildSettingItem(title: "회원 탈퇴하기", onTap: () {}),
-            _buildBottomSection(),
-          ],
+        child: Padding(
+          padding: screenPadding,
+          child: Column(
+            children: [
+              _buildHeadingSection(),
+              _buildProfileSection(),
+              20.y,
+              _buildImagePlaceHolder(),
+              10.y,
+              _buildSettingItem(title: "알림 설정", onTap: () {}),
+              _buildSettingItem(title: "운세 보관함", onTap: () {}),
+              _buildSettingItem(title: "내 쿠폰", onTap: () {}),
+              _buildSettingItem(title: "내 젤리", onTap: () {}),
+              _buildSettingItem(title: "젤리 내역", onTap: () {}),
+              _buildSettingItem(title: "이름 바꾸기", onTap: () {}),
+              _buildSettingItem(title: "약관 보기", onTap: () {}),
+              _buildSettingItem(title: "개발자에게 문의하기", onTap: () {}),
+              _buildSettingItem(title: "광고 정확도 올리기", onTap: () {}),
+              _buildSettingItem(title: "회원 탈퇴하기", onTap: () {}),
+              _buildBottomSection(),
+            ],
+          ),
         ),
       ),
     );
@@ -128,7 +136,7 @@ class MoreLandingPage extends StatelessWidget {
             ),
             Spacer(),
             TextButton(
-              onPressed: () {},
+              onPressed: () => Get.toNamed(RouteName.moreFee, id: NavIds.more),
               child: AppText(
                 color: Colors.blue,
                 text: "정보 수정",

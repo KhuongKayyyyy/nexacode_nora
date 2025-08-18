@@ -5,4 +5,6 @@ class RouteName {
   static const more = "/more";
   static const homeDetail = "/homeDetail";
   static const landingPage = "/landingPage";
+
+  static const moreFee = "/moreFee";
 }
