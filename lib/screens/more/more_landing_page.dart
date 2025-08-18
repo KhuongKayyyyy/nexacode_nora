@@ -47,7 +47,11 @@ class MoreLandingPage extends StatelessWidget {
                     Get.toNamed(RouteName.moreFeeHistory, id: NavIds.more),
               ),
               _buildSettingItem(title: "젤리 내역", onTap: () {}),
-              _buildSettingItem(title: "이름 바꾸기", onTap: () {}),
+              _buildSettingItem(
+                title: "이름 바꾸기",
+                onTap: () =>
+                    Get.toNamed(RouteName.moreChangeNamePage, id: NavIds.more),
+              ),
               _buildSettingItem(title: "약관 보기", onTap: () {}),
               _buildSettingItem(title: "개발자에게 문의하기", onTap: () {}),
               _buildSettingItem(title: "광고 정확도 올리기", onTap: () {}),

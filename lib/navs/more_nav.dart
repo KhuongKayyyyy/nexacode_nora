@@ -4,6 +4,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:nora/constants/NavIds.dart';
 import 'package:nora/constants/RouteName.dart';
 import 'package:nora/screens/more/fortune/fortune_detail_page.dart';
+import 'package:nora/screens/more/more_change_name_page.dart';
 import 'package:nora/screens/more/more_coupon_page.dart';
 import 'package:nora/screens/more/fee/more_fee_history.dart';
 import 'package:nora/screens/more/fee/more_fee_page.dart';
@@ -57,6 +58,12 @@ class MoreNav extends StatelessWidget {
           return GetPageRoute(
             settings: settings,
             page: () => FortuneDetailPage(),
+          );
+        }
+        if (settings.name == RouteName.moreChangeNamePage) {
+          return GetPageRoute(
+            settings: settings,
+            page: () => MoreChangeNamePage(),
           );
         }
         return GetPageRoute(settings: settings, page: () => MoreLandingPage());
