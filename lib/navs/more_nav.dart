@@ -6,6 +6,7 @@ import 'package:nora/constants/RouteName.dart';
 import 'package:nora/screens/more/more_fee_page.dart';
 import 'package:nora/screens/more/more_landing_page.dart';
 import 'package:nora/screens/more/more_notice_setting_pages.dart';
+import 'package:nora/screens/more/more_personal_information.dart';
 
 class MoreNav extends StatelessWidget {
   const MoreNav({super.key});
@@ -28,6 +29,12 @@ class MoreNav extends StatelessWidget {
           return GetPageRoute(
             settings: settings,
             page: () => MoreNoticeSettingPages(),
+          );
+        }
+        if (settings.name == RouteName.morePersonalInformation) {
+          return GetPageRoute(
+            settings: settings,
+            page: () => MorePersonalInformation(),
           );
         }
         return GetPageRoute(settings: settings, page: () => MoreLandingPage());

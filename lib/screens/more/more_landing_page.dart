@@ -107,7 +107,12 @@ class MoreLandingPage extends StatelessWidget {
           SizedBox(width: 12),
           AppText(text: "0 젤리", fontSize: 16, fontWeight: FontWeight.w500),
           Spacer(),
-          AppButton(width: 57, height: 33, text: "충전", onTap: () {}),
+          AppButton(
+            width: 57,
+            height: 33,
+            text: "충전",
+            onTap: () => Get.toNamed(RouteName.moreFee, id: NavIds.more),
+          ),
         ],
       ),
     );
@@ -143,7 +148,10 @@ class MoreLandingPage extends StatelessWidget {
             ),
             Spacer(),
             TextButton(
-              onPressed: () => Get.toNamed(RouteName.moreFee, id: NavIds.more),
+              onPressed: () => Get.toNamed(
+                RouteName.morePersonalInformation,
+                id: NavIds.more,
+              ),
               child: AppText(
                 color: Colors.blue,
                 text: "정보 수정",
