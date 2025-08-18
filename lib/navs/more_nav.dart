@@ -3,9 +3,11 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:nora/constants/NavIds.dart';
 import 'package:nora/constants/RouteName.dart';
+import 'package:nora/screens/more/fortune/fortune_detail_page.dart';
 import 'package:nora/screens/more/more_coupon_page.dart';
-import 'package:nora/screens/more/more_fee_history.dart';
-import 'package:nora/screens/more/more_fee_page.dart';
+import 'package:nora/screens/more/fee/more_fee_history.dart';
+import 'package:nora/screens/more/fee/more_fee_page.dart';
+import 'package:nora/screens/more/fortune/more_fortune_page.dart';
 import 'package:nora/screens/more/more_landing_page.dart';
 import 'package:nora/screens/more/more_notice_setting_pages.dart';
 import 'package:nora/screens/more/more_personal_information.dart';
@@ -44,6 +46,18 @@ class MoreNav extends StatelessWidget {
         }
         if (settings.name == RouteName.moreCouponPage) {
           return GetPageRoute(settings: settings, page: () => MoreCouponPage());
+        }
+        if (settings.name == RouteName.moreFortunePage) {
+          return GetPageRoute(
+            settings: settings,
+            page: () => MoreFortunePage(),
+          );
+        }
+        if (settings.name == RouteName.fortuneDetailPage) {
+          return GetPageRoute(
+            settings: settings,
+            page: () => FortuneDetailPage(),
+          );
         }
         return GetPageRoute(settings: settings, page: () => MoreLandingPage());
       },
