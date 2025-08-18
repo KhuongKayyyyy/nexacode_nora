@@ -61,7 +61,11 @@ class MoreLandingPage extends StatelessWidget {
                 ),
               ),
               _buildSettingItem(title: "광고 정확도 올리기", onTap: () {}),
-              _buildSettingItem(title: "회원 탈퇴하기", onTap: () {}),
+              _buildSettingItem(
+                title: "회원 탈퇴하기",
+                onTap: () =>
+                    Get.toNamed(RouteName.moreDeleteAccount, id: NavIds.more),
+              ),
               _buildBottomSection(),
             ],
           ),

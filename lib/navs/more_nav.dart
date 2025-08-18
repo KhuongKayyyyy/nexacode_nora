@@ -11,6 +11,7 @@ import 'package:nora/screens/more/more_coupon_page.dart';
 import 'package:nora/screens/more/fee/more_fee_history.dart';
 import 'package:nora/screens/more/fee/more_fee_page.dart';
 import 'package:nora/screens/more/fortune/more_fortune_page.dart';
+import 'package:nora/screens/more/more_delete_account.dart';
 import 'package:nora/screens/more/more_landing_page.dart';
 import 'package:nora/screens/more/more_notice_setting_pages.dart';
 import 'package:nora/screens/more/more_personal_information.dart';
@@ -78,6 +79,12 @@ class MoreNav extends StatelessWidget {
           return GetPageRoute(
             settings: settings,
             page: () => MoreSendMessage(),
+          );
+        }
+        if (settings.name == RouteName.moreDeleteAccount) {
+          return GetPageRoute(
+            settings: settings,
+            page: () => MoreDeleteAccount(),
           );
         }
         return GetPageRoute(settings: settings, page: () => MoreLandingPage());

@@ -16,4 +16,5 @@ class RouteName {
   static const moreChangeNamePage = "/moreChangeNamePage";
   static const moreContactDeveloper = "/moreContactDeveloper";
   static const moreSendMessage = "/moreSendMessage";
+  static const moreDeleteAccount = "/moreDeleteAccount";
 }
