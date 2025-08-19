@@ -1,11 +1,17 @@
 class RouteName {
+  // Main
   static const home = "/home";
   static const todayFortune = "/todayFortune";
   static const diary = "/diary";
   static const more = "/more";
-  static const homeDetail = "/homeDetail";
+
+  // Landing Page
   static const landingPage = "/landingPage";
 
+  // Home
+  static const homeDetail = "/homeDetail";
+
+  // More
   static const moreFee = "/moreFee";
   static const moreNoticeSetting = "/moreNoticeSetting";
   static const morePersonalInformation = "/morePersonalInformation";
@@ -17,5 +23,11 @@ class RouteName {
   static const moreContactDeveloper = "/moreContactDeveloper";
   static const moreSendMessage = "/moreSendMessage";
   static const moreDeleteAccount = "/moreDeleteAccount";
+
+  // Today Fortune
   static const todayFortuneResult = "/todayFortuneResult";
+
+  // Diary
+  static const diaryLandingPage = "/diaryLandingPage";
+  static const writeDiaryPage = "/writeDiaryPage";
 }
