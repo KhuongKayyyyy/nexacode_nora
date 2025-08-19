@@ -4,6 +4,8 @@ import 'package:nora/application/utils/extension/extensions.dart';
 import 'package:nora/components/AppButton.dart';
 import 'package:nora/components/AppText.dart';
 import 'package:nora/components/AppTextField.dart';
+import 'package:nora/constants/NavIds.dart';
+import 'package:nora/constants/RouteName.dart';
 import 'package:nora/screens/today_fortune/today_fortune_result.dart';
 
 class TodayFortune extends StatefulWidget {
@@ -47,7 +49,10 @@ class _TodayFortuneState extends State<TodayFortune> {
         AppButton(
           text: "뒤로가기",
           onTap: () {
-            Get.to(() => TodayFortuneResult());
+            Get.toNamed(
+              RouteName.todayFortuneAfterBdConfirm,
+              id: NavIds.todayFortune,
+            );
           },
         ),
         Spacer(),

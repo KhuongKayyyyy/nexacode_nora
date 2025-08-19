@@ -26,6 +26,7 @@ class RouteName {
 
   // Today Fortune
   static const todayFortuneResult = "/todayFortuneResult";
+  static const todayFortuneAfterBdConfirm = "/todayFortuneAfterBdConfirm";
 
   // Diary
   static const diaryLandingPage = "/diaryLandingPage";

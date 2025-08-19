@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:nora/constants/NavIds.dart';
 import 'package:nora/constants/RouteName.dart';
 import 'package:nora/screens/today_fortune/today_fortune.dart';
+import 'package:nora/screens/today_fortune/today_fortune_after_bd_confirm.dart';
 import 'package:nora/screens/today_fortune/today_fortune_result.dart';
 
 class TodayFortuneNav extends StatelessWidget {
@@ -24,6 +25,13 @@ class TodayFortuneNav extends StatelessWidget {
           return GetPageRoute(
             settings: settings,
             page: () => TodayFortune(),
+            fullscreenDialog: true,
+          );
+        }
+        if (settings.name == RouteName.todayFortuneAfterBdConfirm) {
+          return GetPageRoute(
+            settings: settings,
+            page: () => TodayFortuneAfterBdConfirm(),
             fullscreenDialog: true,
           );
         }

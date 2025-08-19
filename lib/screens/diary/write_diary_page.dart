@@ -215,7 +215,7 @@ class _WriteDiaryPageState extends State<WriteDiaryPage> {
   Widget _buildMoodMessage() {
     return Column(
       children: [
-        PlaceHolder(width: double.infinity, height: 180),
+        AppPlaceHolder(width: double.infinity, height: 180),
         16.y,
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -264,7 +264,7 @@ class _WriteDiaryPageState extends State<WriteDiaryPage> {
   Widget _buildMoodSelectStep() {
     return Column(
       children: [
-        PlaceHolder(width: double.infinity, height: 180),
+        AppPlaceHolder(width: double.infinity, height: 180),
         16.y,
         AppText(
           text: '하루미 오늘 기분은 어때?',

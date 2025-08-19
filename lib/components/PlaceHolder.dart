@@ -1,10 +1,10 @@
 import "package:flutter/material.dart";
 import "package:nora/constants/ColorConstants.dart";
 
-class PlaceHolder extends StatelessWidget {
+class AppPlaceHolder extends StatelessWidget {
   final double width;
   final double height;
-  const PlaceHolder({super.key, required this.width, required this.height});
+  const AppPlaceHolder({super.key, required this.width, required this.height});
 
   @override
   Widget build(BuildContext context) {
