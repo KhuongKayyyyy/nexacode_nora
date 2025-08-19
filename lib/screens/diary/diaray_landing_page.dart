@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:nora/application/utils/extension/extensions.dart';
 import 'package:nora/components/AppButton.dart';
 import 'package:nora/components/PlaceHolder.dart';
@@ -46,6 +45,139 @@ class _DiarayLandingPageState extends State<DiarayLandingPage> {
             headerStyle: const HeaderStyle(
               formatButtonVisible: false,
               titleCentered: true,
+            ),
+            calendarStyle: CalendarStyle(
+              outsideDaysVisible: false,
+              weekendTextStyle: TextStyle(color: Colors.grey[600]),
+              defaultTextStyle: TextStyle(color: Colors.grey[600]),
+              cellMargin: EdgeInsets.all(4),
+              cellPadding: EdgeInsets.zero,
+              defaultDecoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(8),
+              ),
+              weekendDecoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(8),
+              ),
+              selectedDecoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(8),
+              ),
+              todayDecoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            calendarBuilders: CalendarBuilders(
+              dowBuilder: (context, day) {
+                final List<String> koreanDays = [
+                  '월',
+                  '화',
+                  '수',
+                  '목',
+                  '금',
+                  '토',
+                  '일',
+                ];
+                final dayIndex = (day.weekday % 7);
+                final text = koreanDays[dayIndex];
+
+                return Center(
+                  child: Text(
+                    text,
+                    style: TextStyle(
+                      color: Colors.grey[600],
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                );
+              },
+              defaultBuilder: (context, day, focusedDay) {
+                // Check if this day has a diary entry (for demonstration, showing emoji on day 19)
+                bool hasDiary = day.day == 19;
+
+                return Container(
+                  margin: EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          '${day.day}',
+                          style: TextStyle(
+                            color: Colors.grey[600],
+                            fontSize: 16,
+                          ),
+                        ),
+                        if (hasDiary)
+                          Text('😊', style: TextStyle(fontSize: 12)),
+                      ],
+                    ),
+                  ),
+                );
+              },
+              selectedBuilder: (context, day, focusedDay) {
+                bool hasDiary = day.day == 19;
+
+                return Container(
+                  margin: EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[400],
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          '${day.day}',
+                          style: TextStyle(
+                            color: Colors.grey[700],
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        if (hasDiary)
+                          Text('😊', style: TextStyle(fontSize: 12)),
+                      ],
+                    ),
+                  ),
+                );
+              },
+              todayBuilder: (context, day, focusedDay) {
+                bool hasDiary = day.day == 19;
+
+                return Container(
+                  margin: EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    color: hasDiary ? Colors.white : Colors.grey[300],
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        if (!hasDiary)
+                          Text(
+                            '${day.day}',
+                            style: TextStyle(
+                              color: Colors.grey[600],
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        if (hasDiary)
+                          Text('😊', style: TextStyle(fontSize: 30)),
+                      ],
+                    ),
+                  ),
+                );
+              },
             ),
           ),
         ),
