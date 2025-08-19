@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:nora/application/utils/extension/extensions.dart';
 import 'package:nora/components/AppButton.dart';
 import 'package:nora/components/AppText.dart';
 import 'package:nora/components/PlaceHolder.dart';
 import 'package:nora/constants/ColorConstants.dart';
+import 'package:nora/screens/tarot_play/tarot_play_page.dart';
 
 class TarotLandingPage extends StatelessWidget {
   const TarotLandingPage({super.key});
@@ -41,7 +44,12 @@ class TarotLandingPage extends StatelessWidget {
       ),
       bottomSheet: Padding(
         padding: EdgeInsets.only(bottom: 32),
-        child: AppButton(text: '다음', onTap: () {}),
+        child: AppButton(
+          text: '다음',
+          onTap: () {
+            Get.to(() => TarotPlayPage());
+          },
+        ),
       ),
     );
   }
