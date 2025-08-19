@@ -4,6 +4,7 @@ import 'package:nora/constants/NavIds.dart';
 import 'package:nora/constants/RouteName.dart';
 import 'package:nora/screens/homepage/home_detail_page.dart';
 import 'package:nora/screens/homepage/homepage.dart';
+import 'package:nora/screens/homepage/inbox/inbox_page.dart';
 
 class HomeNav extends StatelessWidget {
   const HomeNav({super.key});
@@ -18,6 +19,9 @@ class HomeNav extends StatelessWidget {
         }
         if (settings.name == RouteName.home) {
           return GetPageRoute(settings: settings, page: () => Homepage());
+        }
+        if (settings.name == RouteName.inboxPage) {
+          return GetPageRoute(settings: settings, page: () => InboxPage());
         }
         return GetPageRoute(settings: settings, page: () => Homepage());
       },

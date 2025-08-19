@@ -10,6 +10,7 @@ class RouteName {
 
   // Home
   static const homeDetail = "/homeDetail";
+  static const inboxPage = "/inboxPage";
 
   // More
   static const moreFee = "/moreFee";

@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/instance_manager.dart';
+
 import 'package:nora/application/utils/extension/extensions.dart';
 import 'package:nora/components/AppBubbleChat.dart';
 import 'package:nora/components/AppButtonWithTag.dart';
 import 'package:nora/components/AppText.dart';
 import 'package:nora/components/PlaceHolder.dart';
-import 'package:nora/constants/NavIds.dart';
-import 'package:nora/constants/RouteName.dart';
 import 'package:nora/screens/homepage/components/day_count_item.dart';
 import 'package:nora/screens/homepage/components/home_navigation_section.dart';
 import 'package:nora/screens/homepage/components/function_secion.dart';
@@ -34,7 +31,7 @@ class _HomepageState extends State<Homepage> {
                 32.y,
                 AppBubbleChat(text: "안녕하세요", backgroundColor: Colors.white),
                 16.y,
-                AppPlaceHolder(width: 160, height: 160),
+                Center(child: AppPlaceHolder(width: 160, height: 160)),
                 16.y,
                 HomeNavigationSection(),
                 16.y,
