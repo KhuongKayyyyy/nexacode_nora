@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:nora/components/AppText.dart';
+import 'package:nora/screens/tarot_play/tarot_landing_page.dart';
 
 class HarumiSection extends StatelessWidget {
   const HarumiSection({super.key});
@@ -70,32 +72,37 @@ class HarumiSection extends StatelessWidget {
   }
 
   Widget _buildHarumiFunction({required String title}) {
-    return Container(
-      padding: EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-              color: Color(0xFF00E5CC),
-              borderRadius: BorderRadius.circular(8),
+    return InkWell(
+      onTap: () {
+        Get.to(TarotLandingPage());
+      },
+      child: Container(
+        padding: EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: Color(0xFF00E5CC),
+                borderRadius: BorderRadius.circular(8),
+              ),
             ),
-          ),
-          SizedBox(height: 12),
-          AppText(
-            text: title,
-            fontSize: 14,
-            fontWeight: FontWeight.w500,
-            color: Colors.black,
-            textAlign: TextAlign.center,
-          ),
-        ],
+            SizedBox(height: 12),
+            AppText(
+              text: title,
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+              color: Colors.black,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
       ),
     );
   }
