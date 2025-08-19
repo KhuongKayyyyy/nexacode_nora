@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../constants/ColorConstants.dart';
 import '../data/app_data/app_exports.dart';

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart' hide Trans;
 import 'package:nora/constants/ColorConstants.dart';
 import '../constants/StringConstants.dart';
 

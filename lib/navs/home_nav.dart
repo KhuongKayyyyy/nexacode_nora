@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/routes/default_route.dart';
-import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
 import 'package:nora/constants/NavIds.dart';
 import 'package:nora/constants/RouteName.dart';

@@ -1,8 +1,4 @@
-import 'package:get/get_rx/get_rx.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:get/get.dart';
-import 'package:nora/constants/NavIds.dart';
-import 'package:nora/constants/RouteName.dart';
 import 'package:nora/screens/base/base_screen.dart';
 
 class LandingPageController extends GetxController {

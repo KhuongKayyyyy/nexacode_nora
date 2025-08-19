@@ -58,9 +58,9 @@ extension date on DateTime {
       "Sep",
       "Oct",
       "Nov",
-      "Dec"
+      "Dec",
     ];
-    return "$day ${monthNames[month]}, ${year}";
+    return "$day ${monthNames[month]}, $year";
   }
 
   ///Example:
@@ -81,8 +81,9 @@ extension date on DateTime {
     int hour = this.hour;
     int minute = this.minute;
 
-    String formattedTime =
-        DateFormat('h:mm a').format(DateTime(2022, 1, 1, hour, minute));
+    String formattedTime = DateFormat(
+      'h:mm a',
+    ).format(DateTime(2022, 1, 1, hour, minute));
 
     List<String> parts = formattedTime.split(' ');
     String timePart = parts[0]; // Contains the time part (hour:minute)
@@ -94,10 +95,12 @@ extension date on DateTime {
     int formattedMinute = int.parse(timeParts[1]);
 
     // Apply formatting logic
-    String finalHour =
-        formattedHour < 10 ? '0$formattedHour' : '$formattedHour';
-    String finalMinute =
-        formattedMinute < 10 ? '0$formattedMinute' : '$formattedMinute';
+    String finalHour = formattedHour < 10
+        ? '0$formattedHour'
+        : '$formattedHour';
+    String finalMinute = formattedMinute < 10
+        ? '0$formattedMinute'
+        : '$formattedMinute';
 
     return "$finalHour:$finalMinute $ampmPart";
   }
@@ -255,53 +258,35 @@ extension PaddingExtension on Widget {
 }
 
 extension GestureExtension on Widget {
-  Widget onTapped({required void Function() onTap}) => GestureDetector(
-        onTap: onTap,
-        child: this,
-      );
+  Widget onTapped({required void Function() onTap}) =>
+      GestureDetector(onTap: onTap, child: this);
 
   // Double tap gesture
   Widget onDoubleTapped({required void Function() onDoubleTap}) =>
-      GestureDetector(
-        onDoubleTap: onDoubleTap,
-        child: this,
-      );
+      GestureDetector(onDoubleTap: onDoubleTap, child: this);
 
   // Long press gesture
-  Widget onLongPress({required void Function() onLongPress}) => GestureDetector(
-        onLongPress: onLongPress,
-        child: this,
-      );
+  Widget onLongPress({required void Function() onLongPress}) =>
+      GestureDetector(onLongPress: onLongPress, child: this);
 
   // Drag gesture
   Widget onDrag({required void Function(DragStartDetails details) onDrag}) =>
-      GestureDetector(
-        onPanStart: onDrag,
-        child: this,
-      );
+      GestureDetector(onPanStart: onDrag, child: this);
 
   // Drag update gesture (for tracking drag movement)
-  Widget onDragUpdate(
-          {required void Function(DragUpdateDetails details) onDragUpdate}) =>
-      GestureDetector(
-        onPanUpdate: onDragUpdate,
-        child: this,
-      );
+  Widget onDragUpdate({
+    required void Function(DragUpdateDetails details) onDragUpdate,
+  }) => GestureDetector(onPanUpdate: onDragUpdate, child: this);
 
   // Drag end gesture
-  Widget onDragEnd(
-          {required void Function(DragEndDetails details) onDragEnd}) =>
-      GestureDetector(
-        onPanEnd: onDragEnd,
-        child: this,
-      );
+  Widget onDragEnd({
+    required void Function(DragEndDetails details) onDragEnd,
+  }) => GestureDetector(onPanEnd: onDragEnd, child: this);
 }
 
 extension MarginExtension on Widget {
-  Widget withMargin(EdgeInsets margin) => Container(
-        margin: margin,
-        child: this,
-      );
+  Widget withMargin(EdgeInsets margin) =>
+      Container(margin: margin, child: this);
   Widget marginAll(double value) => withMargin(EdgeInsets.all(value));
   Widget marginHorizontal(double value) =>
       withMargin(EdgeInsets.symmetric(horizontal: value));
@@ -311,12 +296,14 @@ extension MarginExtension on Widget {
 
 extension StackExtension on Widget {
   //l(double value) => withMargin(EdgeInsets.symmetric(vertical: value));
-  Stack stackIt(List<Widget> items,
-      {AlignmentGeometry? alignment,
-      TextDirection? textDirection,
-      int reorder = 0,
-      StackFit? fit,
-      Clip? clipBehavior}) {
+  Stack stackIt(
+    List<Widget> items, {
+    AlignmentGeometry? alignment,
+    TextDirection? textDirection,
+    int reorder = 0,
+    StackFit? fit,
+    Clip? clipBehavior,
+  }) {
     List<Widget> reOrderList = [];
 
     reOrderList = _reorderList(items, reorder, this);

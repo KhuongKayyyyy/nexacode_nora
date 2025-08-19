@@ -1,14 +1,8 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dots_indicator/dots_indicator.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' hide Trans;
-import 'package:get/get_core/src/get_main.dart';
 import 'package:nora/components/AppCheckBox.dart';
 import '../constants/ColorConstants.dart';
-import '../constants/ImageConstants.dart';
 import '../constants/utils.dart';
-import 'AppButton.dart';
 import 'AppText.dart';
 import 'appTextField.dart';
 import 'package:lottie/lottie.dart';

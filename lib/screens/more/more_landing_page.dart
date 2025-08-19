@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:nora/application/utils/extension/extensions.dart';
-import 'package:nora/components/AppButton.dart';
 import 'package:nora/components/AppText.dart';
 import 'package:nora/constants/ColorConstants.dart';
 import 'package:nora/constants/Constants.dart';
