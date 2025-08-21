@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nora/application/utils/extension/extensions.dart';
 import 'package:nora/components/AppText.dart';
 
 class HoroscopeHeading extends StatelessWidget {
@@ -27,12 +28,12 @@ class HoroscopeHeading extends StatelessWidget {
         children: [
           AppText(
             text: title,
-            fontSize: 24,
+            fontSize: 28,
             fontWeight: FontWeight.bold,
             color: Colors.black,
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 16),
+          16.y,
           AppText(
             text: subtitle,
             fontSize: 16,
@@ -40,17 +41,19 @@ class HoroscopeHeading extends StatelessWidget {
             color: Colors.grey[600],
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 16),
+          16.y,
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               AppText(
                 text: rating,
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: Colors.black,
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                color: Colors.grey[600],
                 textAlign: TextAlign.center,
               ),
+              SizedBox(width: 8),
+              Container(height: 12, width: 1, color: Colors.grey[400]),
               SizedBox(width: 8),
               AppText(
                 text: viewCount,
@@ -59,6 +62,8 @@ class HoroscopeHeading extends StatelessWidget {
                 color: Colors.grey[600],
                 textAlign: TextAlign.center,
               ),
+              SizedBox(width: 8),
+              Container(height: 12, width: 1, color: Colors.grey[400]),
               SizedBox(width: 8),
               AppText(
                 text: price,

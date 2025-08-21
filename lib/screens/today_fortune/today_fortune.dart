@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nora/application/utils/extension/extensions.dart';
+import 'package:nora/components/AppBubbleChat.dart';
 import 'package:nora/components/AppButton.dart';
 import 'package:nora/components/AppText.dart';
 import 'package:nora/components/AppTextField.dart';
+import 'package:nora/components/PlaceHolder.dart';
+import 'package:nora/constants/AppFont.dart';
 import 'package:nora/constants/NavIds.dart';
 import 'package:nora/constants/RouteName.dart';
 import 'package:nora/screens/today_fortune/today_fortune_result.dart';
@@ -43,72 +46,60 @@ class _TodayFortuneState extends State<TodayFortune> {
   }
 
   Widget _buildLandingStep() {
-    return Column(
-      children: [
-        100.y,
-        AppButton(
-          text: "뒤로가기",
-          onTap: () {
-            Get.toNamed(
-              RouteName.todayFortuneAfterBdConfirm,
-              id: NavIds.todayFortune,
-            );
-          },
-        ),
-        Spacer(),
-        Container(
-          width: 120,
-          height: 120,
-          decoration: BoxDecoration(
-            color: Color(0xFF00E5CC),
-            borderRadius: BorderRadius.circular(8),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          100.y,
+          AppPlaceHolder(width: 100, height: 28, title: "Logo"),
+          Spacer(),
+          Center(child: AppPlaceHolder(width: 120, height: 120)),
+          48.y,
+          AppBubbleChat(
+            isReversed: true,
+            child: Column(
+              children: [
+                AppText(
+                  text: "하루미\n사주풀이를 위해서는\n몇가지 답변이 필요해!",
+                  fontSize: 28,
+                  fontFamily: AppFont.Ownglyph_ryuttung,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.black,
+                  textAlign: TextAlign.center,
+                ),
+                16.y,
+                AppButton(
+                  text: "답변할게",
+                  onTap: () {
+                    setState(() {
+                      currentStep = 1;
+                    });
+                  },
+                ),
+              ],
+            ),
           ),
-        ),
-        Spacer(),
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: 24),
-          padding: EdgeInsets.all(32),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(16),
+          Spacer(),
+
+          AppButton(
+            text: "뒤로가기",
+            onTap: () {
+              Get.toNamed(
+                RouteName.todayFortuneAfterBdConfirm,
+                id: NavIds.todayFortune,
+              );
+            },
           ),
-          child: Column(
-            children: [
-              AppText(
-                text: "하루이",
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
-              SizedBox(height: 16),
-              AppText(
-                text: "사주풀이를 위해서는\n몇가지 답변이 필요해!",
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-                color: Colors.black,
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 32),
-              AppButton(
-                text: "답변할게",
-                onTap: () {
-                  setState(() {
-                    currentStep = 1;
-                  });
-                },
-              ),
-            ],
-          ),
-        ),
-        Spacer(),
-      ],
+        ],
+      ),
     );
   }
 
   Widget _buildGenderSelectStep() {
     return Column(
       children: [
-        Spacer(),
+        100.y,
         Container(
           width: 120,
           height: 120,
@@ -117,14 +108,16 @@ class _TodayFortuneState extends State<TodayFortune> {
             borderRadius: BorderRadius.circular(8),
           ),
         ),
-        Spacer(),
+        16.y,
         AppText(
           text: "성별이 뭐야?",
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
+          fontSize: 28,
+          fontFamily: AppFont.Ownglyph_ryuttung,
+          fontWeight: FontWeight.w400,
           color: Colors.black,
+          textAlign: TextAlign.center,
         ),
-        Spacer(),
+        32.y,
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 24),
           child: Row(
@@ -165,7 +158,7 @@ class _TodayFortuneState extends State<TodayFortune> {
   Widget _buildBirthdaySelectStep() {
     return Column(
       children: [
-        Spacer(),
+        100.y,
         Container(
           width: 120,
           height: 120,
@@ -174,14 +167,16 @@ class _TodayFortuneState extends State<TodayFortune> {
             borderRadius: BorderRadius.circular(8),
           ),
         ),
-        Spacer(),
+        16.y,
         AppText(
           text: "생일은 언제야?",
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
+          fontSize: 28,
+          fontFamily: AppFont.Ownglyph_ryuttung,
+          fontWeight: FontWeight.w400,
           color: Colors.black,
+          textAlign: TextAlign.center,
         ),
-        Spacer(),
+        16.y,
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 24),
           child: Row(
@@ -225,7 +220,7 @@ class _TodayFortuneState extends State<TodayFortune> {
             ],
           ),
         ),
-        Spacer(),
+        32.y,
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 24),
           child: AppButton(
@@ -294,7 +289,7 @@ class _TodayFortuneState extends State<TodayFortune> {
   Widget _buildBirthTimeSelectStep() {
     return Column(
       children: [
-        Spacer(),
+        100.y,
         Container(
           width: 80,
           height: 80,
@@ -303,14 +298,16 @@ class _TodayFortuneState extends State<TodayFortune> {
             borderRadius: BorderRadius.circular(8),
           ),
         ),
-        SizedBox(height: 40),
+        16.y,
         AppText(
           text: "태어난 시간을 알려줘!",
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
+          fontSize: 28,
+          fontFamily: AppFont.Ownglyph_ryuttung,
+          fontWeight: FontWeight.w400,
           color: Colors.black,
+          textAlign: TextAlign.center,
         ),
-        SizedBox(height: 60),
+        16.y,
         Container(
           margin: EdgeInsets.symmetric(horizontal: 24),
           child: Row(
@@ -369,7 +366,7 @@ class _TodayFortuneState extends State<TodayFortune> {
             ],
           ),
         ),
-        SizedBox(height: 20),
+        16.y,
         Container(
           margin: EdgeInsets.symmetric(horizontal: 24),
           child: Row(
@@ -381,13 +378,15 @@ class _TodayFortuneState extends State<TodayFortune> {
               ),
               AppText(
                 text: "태어난 시간을 알아",
-                fontSize: 14,
-                color: Colors.grey[600],
+                fontSize: 16,
+                color: Colors.black,
+                fontWeight: FontWeight.w400,
+                fontFamily: AppFont.Ownglyph_ryuttung,
               ),
             ],
           ),
         ),
-        Spacer(),
+        16.y,
         Container(
           margin: EdgeInsets.symmetric(horizontal: 24),
           width: double.infinity,
@@ -497,48 +496,33 @@ class _TodayFortuneState extends State<TodayFortune> {
     return Column(
       children: [
         Spacer(),
-        Container(
-          width: 120,
-          height: 120,
-          decoration: BoxDecoration(
-            color: Color(0xFF00E5CC),
-            borderRadius: BorderRadius.circular(8),
-          ),
-        ),
-        Spacer(),
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: 24),
-          padding: EdgeInsets.all(32),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Column(
-            children: [
-              AppText(
-                text: "남자",
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
-              SizedBox(height: 16),
-              AppText(
-                text: "1996년 2월 1일에\n태어난게 맞을까?",
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-                color: Colors.black,
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 32),
-              AppButton(
-                text: "맞아!",
-                onTap: () {
-                  setState(() {
-                    currentStep = 5;
-                  });
-                },
-              ),
-            ],
+        Center(child: AppPlaceHolder(width: 120, height: 120)),
+        16.y,
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          child: AppBubbleChat(
+            isReversed: true,
+            child: Column(
+              children: [
+                AppText(
+                  text: "남자\n1996년 2월 1일에\n태어난게 맞을까?",
+                  fontSize: 28,
+                  fontFamily: AppFont.Ownglyph_ryuttung,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.black,
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 32),
+                AppButton(
+                  text: "맞아!",
+                  onTap: () {
+                    setState(() {
+                      currentStep = 5;
+                    });
+                  },
+                ),
+              ],
+            ),
           ),
         ),
         Spacer(),
@@ -550,39 +534,16 @@ class _TodayFortuneState extends State<TodayFortune> {
     return Column(
       children: [
         Spacer(),
-        Container(
-          width: 120,
-          height: 120,
-          decoration: BoxDecoration(
-            color: Color(0xFF00E5CC),
-            borderRadius: BorderRadius.circular(8),
-          ),
-        ),
-        Spacer(),
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: 24),
-          padding: EdgeInsets.all(32),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Column(
-            children: [
-              AppText(
-                text: "잠시만",
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
-              SizedBox(height: 16),
-              AppText(
-                text: "기다려줘!~",
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-                color: Colors.black,
-                textAlign: TextAlign.center,
-              ),
-            ],
+        Center(child: AppPlaceHolder(width: 120, height: 120)),
+        16.y,
+        AppBubbleChat(
+          isReversed: true,
+          child: AppText(
+            text: "잠시만\n기다려줘~",
+            fontSize: 28,
+            fontFamily: AppFont.Ownglyph_ryuttung,
+            fontWeight: FontWeight.w400,
+            color: Colors.black,
           ),
         ),
         Spacer(),

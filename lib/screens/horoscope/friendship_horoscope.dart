@@ -18,6 +18,7 @@ class _FriendshipHoroscopeState extends State<FriendshipHoroscope> {
   int currentStep = 0;
   bool showBottomSheet = false;
   bool showHarumiSelected = false;
+  bool hasShownBottomSheet = false;
 
   @override
   void initState() {
@@ -44,18 +45,22 @@ class _FriendshipHoroscopeState extends State<FriendshipHoroscope> {
       });
     }
 
-    // Show bottom sheet
+    // Show bottom sheet only once
     await Future.delayed(Duration(milliseconds: 2000));
-    if (mounted) {
+    if (mounted && !hasShownBottomSheet) {
       setState(() {
         showBottomSheet = true;
+        hasShownBottomSheet = true;
       });
       _showBottomSheet();
     }
   }
 
   void _goToNextStep() {
-    if (currentStep >= 9 && !showHarumiSelected) {
+    if (currentStep >= 9 && !showHarumiSelected && !hasShownBottomSheet) {
+      setState(() {
+        hasShownBottomSheet = true;
+      });
       _showBottomSheet();
     } else if (showHarumiSelected) {
       // Handle next step from harumi selected state
@@ -66,104 +71,125 @@ class _FriendshipHoroscopeState extends State<FriendshipHoroscope> {
   @override
   Widget build(BuildContext context) {
     if (showHarumiSelected) {
-      return Scaffold(
-        appBar: AppBar(leading: AppPlaceHolder(width: 10, height: 10)),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Flexible(
-                child: SingleChildScrollView(child: _buildHarumiSeleted()),
+      return Container(
+        color: context.theme.scaffoldBackgroundColor,
+        child: SafeArea(
+          child: Scaffold(
+            appBar: AppBar(
+              leading: Padding(
+                padding: const EdgeInsets.only(left: 16),
+                child: AppPlaceHolder(width: 10, height: 10),
               ),
-            ],
-          ),
-        ),
-        bottomSheet: Padding(
-          padding: const EdgeInsets.only(
-            left: 16,
-            right: 16,
-            bottom: 32,
-            top: 16,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              AppText(
-                text: "의견 보내기",
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
+              leadingWidth: 40,
+              toolbarHeight: 25,
+            ),
+            body: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Flexible(
+                    child: SingleChildScrollView(child: _buildHarumiSeleted()),
+                  ),
+                ],
               ),
-              16.x,
-              AppPlaceHolder(width: 10, height: 10),
-            ],
+            ),
+            bottomSheet: Padding(
+              padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  AppText(
+                    text: "의견 보내기",
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  16.x,
+                  AppPlaceHolder(width: 10, height: 10),
+                ],
+              ),
+            ),
           ),
         ),
       );
     }
 
     if (currentStep >= 9) {
-      return Scaffold(
-        appBar: AppBar(leading: AppPlaceHolder(width: 10, height: 10)),
-        body: SingleChildScrollView(
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(children: [_newYearEvent(), 100.y]),
+      return Container(
+        color: context.theme.scaffoldBackgroundColor,
+        child: SafeArea(
+          child: Scaffold(
+            appBar: AppBar(
+              leading: Padding(
+                padding: const EdgeInsets.only(left: 16),
+                child: AppPlaceHolder(width: 10, height: 10),
+              ),
+              leadingWidth: 40,
+              toolbarHeight: 25,
+            ),
+            body: SingleChildScrollView(
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Column(children: [_newYearEvent(), 100.y]),
+                ),
+              ),
+            ),
+            bottomSheet: Padding(
+              padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
+              child: AppButton(text: "다음", onTap: _goToNextStep),
             ),
           ),
-        ),
-        bottomSheet: Padding(
-          padding: const EdgeInsets.only(
-            left: 16,
-            right: 16,
-            bottom: 32,
-            top: 16,
-          ),
-          child: AppButton(text: "다음", onTap: _goToNextStep),
         ),
       );
     }
 
-    return Scaffold(
-      appBar: AppBar(leading: AppPlaceHolder(width: 10, height: 10)),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              if (currentStep >= 1)
-                AppPlaceHolder(
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.6,
-                  title: "Placeholder ${currentStep}",
-                ),
-            ],
+    return Container(
+      color: context.theme.scaffoldBackgroundColor,
+      child: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            leading: Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: AppPlaceHolder(width: 10, height: 10),
+            ),
+            leadingWidth: 40,
+            toolbarHeight: 25,
           ),
+          body: Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  if (currentStep >= 1)
+                    AppPlaceHolder(
+                      width: double.infinity,
+                      height: MediaQuery.of(context).size.height * 0.6,
+                      title: "Placeholder ${currentStep}",
+                    ),
+                ],
+              ),
+            ),
+          ),
+          bottomSheet: showHarumiSelected
+              ? Row(
+                  children: [
+                    AppText(
+                      text: "의견 보내기",
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    16.x,
+                    AppPlaceHolder(width: 10, height: 10),
+                  ],
+                )
+              : Padding(
+                  padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
+                  child: AppButton(text: "다음", onTap: _goToNextStep),
+                ),
         ),
       ),
-      bottomSheet: showHarumiSelected
-          ? Row(
-              children: [
-                AppText(
-                  text: "의견 보내기",
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
-                16.x,
-                AppPlaceHolder(width: 10, height: 10),
-              ],
-            )
-          : Padding(
-              padding: const EdgeInsets.only(
-                left: 16,
-                right: 16,
-                bottom: 32,
-                top: 16,
-              ),
-              child: AppButton(text: "다음", onTap: _goToNextStep),
-            ),
     );
   }
 
@@ -283,7 +309,7 @@ class _FriendshipHoroscopeState extends State<FriendshipHoroscope> {
                     width: 24,
                     height: 24,
                     decoration: BoxDecoration(
-                      color: ColorConstants.color08d2d2,
+                      color: const Color(0xFF00E5CC),
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: const Icon(
@@ -296,35 +322,36 @@ class _FriendshipHoroscopeState extends State<FriendshipHoroscope> {
               ],
             ),
             32.y,
-            AppButton(
-              text: "톡이서 궁합보기",
-              onTap: () {
-                Get.back();
-                setState(() {
-                  showHarumiSelected = true;
-                });
-              },
-            ),
-            16.y,
-            AppButton(
-              text: "단체로 궁합보기",
-              onTap: () {
-                Get.back();
-                setState(() {
-                  showHarumiSelected = true;
-                });
-              },
-            ),
-            32.y,
             Container(
-              width: 134,
-              height: 5,
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
               decoration: BoxDecoration(
+                color: Colors.grey[100],
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: AppText(
+                text: "톡이서 궁합보기",
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
                 color: Colors.black,
-                borderRadius: BorderRadius.circular(2.5),
               ),
             ),
             16.y,
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+              decoration: BoxDecoration(
+                color: Colors.grey[100],
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: AppText(
+                text: "단체로 궁합보기",
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: Colors.black,
+              ),
+            ),
+            24.y,
           ],
         ),
       ),

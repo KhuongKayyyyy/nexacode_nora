@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nora/components/AppText.dart';
 import 'package:nora/components/AppButtonWithTag.dart';
+import 'package:nora/constants/AppFont.dart';
 import 'package:nora/data/model/item.dart';
 
 class FunctionSection extends StatelessWidget {
@@ -23,9 +24,10 @@ class FunctionSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AppText(
+          fontFamily: AppFont.Ownglyph_ryuttung,
           text: title,
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
+          fontSize: 20,
+          fontWeight: FontWeight.w400,
           color: Colors.black,
         ),
         SizedBox(height: 16),

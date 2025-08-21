@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:nora/application/utils/extension/extensions.dart';
 import 'package:nora/components/AppText.dart';
 import 'package:nora/screens/tarot_play/tarot_landing_page.dart';
 
@@ -22,9 +23,9 @@ class HarumiSection extends StatelessWidget {
           SizedBox(height: 8),
           AppText(
             text: '사주 읽어도 볼 수 있는\n오늘의 운세를 모아봤어요',
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
-            color: Colors.grey[600],
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+            color: Colors.black,
           ),
           SizedBox(height: 24),
           Row(
@@ -93,13 +94,12 @@ class HarumiSection extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
               ),
             ),
-            SizedBox(height: 12),
+            16.y,
             AppText(
               text: title,
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
               color: Colors.black,
-              textAlign: TextAlign.center,
             ),
           ],
         ),

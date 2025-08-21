@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:nora/application/utils/extension/extensions.dart';
+import 'package:nora/components/AppBubbleChat.dart';
 import 'package:nora/components/AppButton.dart';
 import 'package:nora/components/AppText.dart';
+import 'package:nora/components/PlaceHolder.dart';
+import 'package:nora/constants/AppFont.dart';
 import 'package:nora/constants/ColorConstants.dart';
 
 class TodayFortuneResult extends StatefulWidget {
@@ -115,14 +118,7 @@ class _TodayFortuneResultState extends State<TodayFortuneResult> {
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
-              Container(
-                width: 24,
-                height: 24,
-                decoration: BoxDecoration(
-                  color: Color(0xFF00E5CC),
-                  borderRadius: BorderRadius.circular(4),
-                ),
-              ),
+              AppPlaceHolder(width: 24, height: 24),
             ],
           ),
         ],
@@ -183,68 +179,62 @@ class _TodayFortuneResultState extends State<TodayFortuneResult> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 200,
-              height: 200,
-              decoration: BoxDecoration(
-                color: Color(0xFF00E5CC),
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
+            AppPlaceHolder(width: 200, height: 200),
             40.y,
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 16),
-              padding: EdgeInsets.all(32),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Column(
-                children: [
-                  AppText(
-                    text: "오늘의 사주풀이는\n여기까지!",
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    textAlign: TextAlign.center,
-                  ),
-                  16.y,
-                  AppText(
-                    text: "오늘의 운세가 마음에 들었길 바라!",
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    textAlign: TextAlign.center,
-                  ),
-                  32.y,
-                  Row(
-                    children: [
-                      Expanded(
-                        child: AppButton(
-                          text: "내용 다시 볼래",
-                          onTap: () {
-                            // Scroll back to first page
-                            _pageController.animateToPage(
-                              0,
-                              duration: Duration(milliseconds: 500),
-                              curve: Curves.easeInOut,
-                            );
-                          },
-                          color: Color(0xFFF5F5F5),
-                          textColor: Colors.black,
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: AppBubbleChat(
+                isReversed: true,
+                child: Column(
+                  children: [
+                    AppText(
+                      text: "오늘의 사주풀이는\n여기까지!",
+                      fontSize: 28,
+                      fontFamily: AppFont.Ownglyph_ryuttung,
+                      fontWeight: FontWeight.w400,
+                      textAlign: TextAlign.center,
+                    ),
+                    16.y,
+                    AppText(
+                      text: "오늘의 운세가 마음에 들었길 바라!",
+                      fontFamily: AppFont.Ownglyph_ryuttung,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w400,
+                      textAlign: TextAlign.center,
+                      color: Colors.grey,
+                    ),
+                    32.y,
+                    Row(
+                      children: [
+                        Expanded(
+                          child: AppButton(
+                            text: "내용 다시 볼래",
+                            onTap: () {
+                              // Scroll back to first page
+                              _pageController.animateToPage(
+                                0,
+                                duration: Duration(milliseconds: 500),
+                                curve: Curves.easeInOut,
+                              );
+                            },
+                            color: Color(0xFFF5F5F5),
+                            textColor: Colors.black,
+                          ),
                         ),
-                      ),
-                      12.x,
-                      Expanded(
-                        child: AppButton(
-                          text: "나가기",
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          textColor: Colors.white,
+                        12.x,
+                        Expanded(
+                          child: AppButton(
+                            text: "나가기",
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            textColor: Colors.white,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
@@ -254,64 +244,59 @@ class _TodayFortuneResultState extends State<TodayFortuneResult> {
   }
 
   Widget _buildLuckMessage({required String title, required String content}) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.7,
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 24,
-                  height: 24,
-                  decoration: BoxDecoration(
-                    color: Color(0xFF00E5CC),
-                    borderRadius: BorderRadius.circular(4),
+    return Center(
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height * 0.7,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  AppPlaceHolder(width: 24, height: 24),
+                  SizedBox(width: 8),
+                  AppText(
+                    text: title,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+              SizedBox(height: 24),
+              AppText(
+                text: "한줄 조언",
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+                color: Color.fromRGBO(141, 163, 230, 1),
+              ),
+              SizedBox(height: 16),
+              AppText(
+                text: "모험심을 발휘해볼까?",
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+                color: Colors.white,
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 40),
+              Expanded(
+                flex: 3,
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 16),
+                  padding: EdgeInsets.all(16),
+                  child: AppText(
+                    text: content,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.white,
+                    textAlign: TextAlign.left,
                   ),
                 ),
-                SizedBox(width: 8),
-                AppText(
-                  text: title,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ],
-            ),
-            SizedBox(height: 24),
-            AppText(
-              text: "한줄 조언",
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              color: ColorConstants.color007aff,
-            ),
-            SizedBox(height: 16),
-            AppText(
-              text: "모험심을 발휘해볼까?",
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 40),
-            Expanded(
-              flex: 3,
-              child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 24),
-                padding: EdgeInsets.all(24),
-                child: AppText(
-                  text: content,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.white,
-                  textAlign: TextAlign.left,
-                ),
               ),
-            ),
-            Spacer(flex: 1),
-          ],
+              Spacer(flex: 1),
+            ],
+          ),
         ),
       ),
     );
@@ -326,7 +311,7 @@ class _TodayFortuneResultState extends State<TodayFortuneResult> {
           AppText(
             text: title,
             fontSize: 24,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w600,
             color: Colors.white,
             textAlign: TextAlign.center,
           ),
@@ -379,8 +364,8 @@ class _TodayFortuneResultState extends State<TodayFortuneResult> {
         child: Center(
           child: AppText(
             text: text,
-            fontSize: 14,
-            fontWeight: FontWeight.w500,
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
             color: Colors.black,
             textAlign: TextAlign.center,
           ),
@@ -397,42 +382,39 @@ class _TodayFortuneResultState extends State<TodayFortuneResult> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Spacer(),
-          Container(
-            width: 120,
-            height: 120,
-            decoration: BoxDecoration(
-              color: Color(0xFF00E5CC),
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
+          AppPlaceHolder(width: 120, height: 120),
           const Spacer(),
-          Container(
-            padding: EdgeInsets.all(32),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(16),
-            ),
+          AppBubbleChat(
+            isReversed: true,
             child: Column(
               children: [
                 AppText(
-                  text: "하루이!",
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-                SizedBox(height: 16),
-                AppText(
-                  text: "오늘 운신게 있는지 물어\n끄끄읗 재미해봐",
-                  fontSize: 16,
+                  text: "하루미!\n혹시 놓친게 있을지 몰라\n꼼꼼히 체크해봐",
+                  fontSize: 28,
+                  fontFamily: AppFont.Ownglyph_ryuttung,
                   fontWeight: FontWeight.w400,
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 16),
+                16.y,
                 AppText(
-                  text: "심주를 분석하려면 많은 것 것들이 활용하여",
-                  fontSize: 12,
+                  text: "실수를 방지하려면 꼼꼼한 점검이 필요해",
+                  fontSize: 20,
+                  fontFamily: AppFont.Ownglyph_ryuttung,
                   fontWeight: FontWeight.w400,
                   textAlign: TextAlign.center,
+                  color: Colors.grey,
                 ),
+                16.y,
+                AppButton(
+                  text: "다음",
+                  onTap: () {
+                    _pageController.nextPage(
+                      duration: Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                    );
+                  },
+                ),
+                16.y,
               ],
             ),
           ),
@@ -456,19 +438,13 @@ class _TodayFortuneResultState extends State<TodayFortuneResult> {
           ),
           child: Column(
             children: [
-              Container(
-                width: 120,
-                height: 120,
-                decoration: BoxDecoration(
-                  color: Color(0xFF00E5CC),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
+              AppPlaceHolder(width: 120, height: 120),
               SizedBox(height: 16),
               AppText(
-                text: "하루이의 오늘의 운세점수",
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
+                text: "하루미의 오늘의 운세점수",
+                fontSize: 16,
+                fontFamily: AppFont.Ownglyph_ryuttung,
+                color: Colors.black,
               ),
               SizedBox(height: 8),
               AppText(
@@ -481,8 +457,9 @@ class _TodayFortuneResultState extends State<TodayFortuneResult> {
               AppText(
                 textAlign: TextAlign.center,
                 text: "1996년 2월 1일 | 무인일주",
-                fontSize: 12,
+                fontSize: 14,
                 fontWeight: FontWeight.w400,
+                color: Colors.grey,
               ),
             ],
           ),
@@ -498,18 +475,11 @@ class _TodayFortuneResultState extends State<TodayFortuneResult> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 120,
-              height: 120,
-              decoration: BoxDecoration(
-                color: Color(0xFF00E5CC),
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
+            AppPlaceHolder(width: 120, height: 120),
             SizedBox(height: 24),
             AppText(
               text: "하루이의 일주",
-              fontSize: 14,
+              fontSize: 16,
               fontWeight: FontWeight.w400,
               color: Colors.white,
             ),
@@ -524,7 +494,7 @@ class _TodayFortuneResultState extends State<TodayFortuneResult> {
             SizedBox(height: 24),
             AppText(
               text: "하루이의 일인",
-              fontSize: 14,
+              fontSize: 16,
               fontWeight: FontWeight.w400,
               color: Colors.white,
             ),
@@ -532,7 +502,7 @@ class _TodayFortuneResultState extends State<TodayFortuneResult> {
             AppText(
               textAlign: TextAlign.center,
               text: "계축",
-              fontSize: 24,
+              fontSize: 32,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -540,8 +510,8 @@ class _TodayFortuneResultState extends State<TodayFortuneResult> {
             AppText(
               textAlign: TextAlign.center,
               text: "(丑土)",
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
+              fontSize: 32,
+              fontWeight: FontWeight.w500,
               color: Colors.white,
             ),
           ],
@@ -559,23 +529,23 @@ class _TodayFortuneResultState extends State<TodayFortuneResult> {
           children: [
             AppText(
               text: "오늘의 일진 : 계축(癸丑)",
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
+              fontSize: 24,
+              fontWeight: FontWeight.w600,
               color: Colors.white,
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 40),
             AppText(
               text: "한줄 조언",
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              color: Color.fromRGBO(141, 163, 230, 1),
             ),
             SizedBox(height: 16),
             AppText(
               text: "실수를 방지하려면\n꼼꼼한 점검이 필요해",
               fontSize: 20,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w600,
               color: Colors.white,
               textAlign: TextAlign.center,
             ),
@@ -583,7 +553,7 @@ class _TodayFortuneResultState extends State<TodayFortuneResult> {
             AppText(
               text:
                   "오늘의 일정과 계획을 다시 한 번 확인해보는 것이\n중요해. 놓친 부분이 있다면 재 정리하고 수정해봐.\n꼼꼼한 점검이 실수를 줄이는 데 큰 도움이 될거야.",
-              fontSize: 14,
+              fontSize: 16,
               fontWeight: FontWeight.w400,
               color: Colors.white,
               textAlign: TextAlign.center,

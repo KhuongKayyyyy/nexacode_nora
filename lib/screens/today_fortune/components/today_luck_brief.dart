@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nora/application/utils/extension/extensions.dart';
 import 'package:nora/components/AppText.dart';
 import 'package:nora/components/PlaceHolder.dart';
 
@@ -230,17 +231,17 @@ class TodayLuckBrief extends StatelessWidget {
                   fontSize: 14,
                   color: Colors.grey[600],
                 ),
-                SizedBox(height: 8),
+                16.y,
                 AppText(
                   text: luck ?? '오늘의 운세점수 45점',
-                  fontSize: 18,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
                 ),
-                SizedBox(height: 8),
+                16.y,
                 AppText(
                   text: message ?? '하루미, 뭔가 놓친 것이 있을지 몰라. 꼼꼼히 체...',
-                  fontSize: 14,
+                  fontSize: 16,
                   color: Colors.grey[700],
                   overflow: TextOverflow.ellipsis,
                 ),

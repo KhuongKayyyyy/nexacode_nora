@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nora/application/utils/extension/extensions.dart';
 import 'package:nora/components/AppText.dart';
+import 'package:nora/constants/ColorConstants.dart';
 
 class HoroscopeCommentSection extends StatelessWidget {
   const HoroscopeCommentSection({super.key});
@@ -22,7 +23,7 @@ class HoroscopeCommentSection extends StatelessWidget {
               TextSpan(text: "운세를 본 "),
               TextSpan(
                 text: "99,999",
-                style: TextStyle(color: Colors.blue),
+                style: TextStyle(color: ColorConstants.btnDefaultColor),
               ),
               TextSpan(text: "명의 후기"),
             ],
@@ -49,7 +50,11 @@ class HoroscopeCommentSection extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(Icons.favorite, color: Color(0xFF00E5CC), size: 20),
+              Icon(
+                Icons.favorite,
+                color: ColorConstants.btnDefaultColor,
+                size: 20,
+              ),
               SizedBox(width: 8),
               AppText(
                 text: '고마워',
@@ -60,7 +65,7 @@ class HoroscopeCommentSection extends StatelessWidget {
               Spacer(),
               AppText(
                 text: '연*',
-                fontSize: 14,
+                fontSize: 16,
                 fontWeight: FontWeight.w400,
                 color: Colors.grey[600],
               ),

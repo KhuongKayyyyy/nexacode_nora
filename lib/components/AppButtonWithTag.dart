@@ -23,7 +23,7 @@ class AppButtonWithTag extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
@@ -82,7 +82,7 @@ class AppButtonWithTag extends StatelessWidget {
       ),
       child: AppText(
         text: tagText,
-        fontSize: 12,
+        fontSize: 14,
         fontWeight: FontWeight.w600,
         color: Colors.white,
       ),

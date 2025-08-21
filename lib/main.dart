@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nora/application/controllers/base_controller.dart';
+import 'package:nora/application/controllers/home_controller.dart';
 import 'package:nora/application/controllers/landing_page_controller.dart';
 import 'package:nora/constants/AppTheme.dart';
 import 'package:nora/screens/base/base_screen.dart';
@@ -8,6 +9,7 @@ import 'package:nora/screens/base/base_screen.dart';
 void main() {
   Get.put<BaseController>(BaseController());
   Get.put<LandingPageController>(LandingPageController());
+  Get.put<HomeController>(HomeController());
   runApp(const MyApp());
 }
 

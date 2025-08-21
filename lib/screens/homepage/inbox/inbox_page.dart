@@ -11,57 +11,66 @@ class InboxPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[100],
-      appBar: AppBar(
-        backgroundColor: Colors.grey[100],
-        centerTitle: false,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: AppText(text: '편지함', fontSize: 18, fontWeight: FontWeight.w600),
-        actions: [
-          Row(
-            children: [
-              TextButton(
-                style: TextButton.styleFrom(padding: EdgeInsets.zero),
-                onPressed: () {},
-                child: Text(
-                  '전체',
-                  style: TextStyle(color: Colors.grey[600], fontSize: 14),
-                ),
+    return Container(
+      color: context.theme.scaffoldBackgroundColor,
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: Colors.grey[100],
+          appBar: AppBar(
+            backgroundColor: Colors.grey[100],
+            centerTitle: false,
+            elevation: 0,
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+              onPressed: () => Navigator.pop(context),
+            ),
+            title: AppText(
+              text: '편지함',
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),
+            actions: [
+              Row(
+                children: [
+                  TextButton(
+                    style: TextButton.styleFrom(padding: EdgeInsets.zero),
+                    onPressed: () {},
+                    child: Text(
+                      '전체',
+                      style: TextStyle(color: Colors.grey[600], fontSize: 14),
+                    ),
+                  ),
+                  Icon(Icons.filter_list, color: Colors.grey[600]),
+                ],
               ),
-              Icon(Icons.filter_list, color: Colors.grey[600]),
+              10.x,
             ],
           ),
-          10.x,
-        ],
-      ),
-      body: ListView(
-        children: [
-          _buildMessageItem(
-            date: '2025년 6월 15일',
-            message: '요술은 뭐가 좋았어? 하루미의 행복했던 순간이 궁금...',
+          body: ListView(
+            children: [
+              _buildMessageItem(
+                date: '2025년 6월 15일',
+                message: '요술은 뭐가 좋았어? 하루미의 행복했던 순간이 궁금...',
+              ),
+              _buildMessageItem(
+                date: '2025년 6월 15일',
+                message: '요술은 뭐가 좋았어? 하루미의 행복했던 순간이 궁금...',
+              ),
+              _buildMessageItem(
+                date: '2025년 6월 15일',
+                message: '요술은 뭐가 좋았어? 하루미의 행복했던 순간이 궁금...',
+              ),
+            ],
           ),
-          _buildMessageItem(
-            date: '2025년 6월 15일',
-            message: '요술은 뭐가 좋았어? 하루미의 행복했던 순간이 궁금...',
+          bottomSheet: Padding(
+            padding: const EdgeInsets.only(top: 16),
+            child: AppButton(
+              text: "편지 보내기",
+              onTap: () {
+                Get.to(() => WriteLetterPage());
+              },
+            ),
           ),
-          _buildMessageItem(
-            date: '2025년 6월 15일',
-            message: '요술은 뭐가 좋았어? 하루미의 행복했던 순간이 궁금...',
-          ),
-        ],
-      ),
-      bottomSheet: Padding(
-        padding: const EdgeInsets.only(bottom: 30),
-        child: AppButton(
-          text: "편지 보내기",
-          onTap: () {
-            Get.to(() => WriteLetterPage());
-          },
         ),
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nora/components/AppButton.dart';
 import 'package:nora/components/AppText.dart';
+import 'package:nora/screens/horoscope/components/payment_option.dart';
 
 class MoreFeePage extends StatelessWidget {
   const MoreFeePage({super.key});

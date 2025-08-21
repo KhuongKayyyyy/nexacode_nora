@@ -17,7 +17,7 @@ class DayCountItem extends StatelessWidget {
       child: AppText(
         text: title,
         fontSize: 14,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w500,
         color: Colors.black,
       ),
     );

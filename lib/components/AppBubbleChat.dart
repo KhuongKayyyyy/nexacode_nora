@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:nora/components/AppText.dart';
 
 class AppBubbleChat extends StatelessWidget {
-  final String text;
+  final Widget child;
   final Color? backgroundColor;
   final Color? textColor;
   final double? fontSize;
   final FontWeight? fontWeight;
+  final String? fontFamily;
+  final bool isReversed;
 
   const AppBubbleChat({
     super.key,
-    required this.text,
+    required this.child,
     this.backgroundColor,
     this.textColor,
     this.fontSize,
     this.fontWeight,
+    this.fontFamily,
+    this.isReversed = false,
   });
 
   @override
@@ -22,30 +25,33 @@ class AppBubbleChat extends StatelessWidget {
     return Align(
       alignment: Alignment.center,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            constraints: BoxConstraints(
-              maxWidth: MediaQuery.of(context).size.width * 0.75,
-            ),
-            margin: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            decoration: BoxDecoration(
-              color: backgroundColor ?? Colors.grey[200],
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20),
-                topRight: Radius.circular(20),
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(4),
+          if (isReversed)
+            CustomPaint(
+              size: const Size(24, 12),
+              painter: BubbleTrianglePainter(
+                color: backgroundColor ?? Colors.white,
+                isReversed: isReversed,
               ),
             ),
-            child: AppText(
-              text: text,
-              fontSize: fontSize ?? 16,
-              fontWeight: fontWeight ?? FontWeight.w400,
-              color: textColor ?? Colors.black,
+          // Bubble body
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            decoration: BoxDecoration(
+              color: backgroundColor ?? Colors.white,
+              borderRadius: BorderRadius.circular(32),
             ),
+            child: child,
           ),
+          if (!isReversed)
+            CustomPaint(
+              size: const Size(24, 12),
+              painter: BubbleTrianglePainter(
+                color: backgroundColor ?? Colors.white,
+                isReversed: isReversed,
+              ),
+            ),
         ],
       ),
     );
@@ -54,8 +60,9 @@ class AppBubbleChat extends StatelessWidget {
 
 class BubbleTrianglePainter extends CustomPainter {
   final Color color;
+  final bool isReversed;
 
-  BubbleTrianglePainter({required this.color});
+  BubbleTrianglePainter({required this.color, this.isReversed = false});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -64,9 +71,15 @@ class BubbleTrianglePainter extends CustomPainter {
       ..style = PaintingStyle.fill;
 
     final path = Path();
-    path.moveTo(0, 0);
-    path.lineTo(size.width, 0);
-    path.lineTo(size.width, size.height);
+    if (isReversed) {
+      path.moveTo(size.width / 2, 0); // top center
+      path.lineTo(0, size.height); // bottom left
+      path.lineTo(size.width, size.height); // bottom right
+    } else {
+      path.moveTo(0, 0); // left
+      path.lineTo(size.width, 0); // right
+      path.lineTo(size.width / 2, size.height); // bottom center
+    }
     path.close();
 
     canvas.drawPath(path, paint);

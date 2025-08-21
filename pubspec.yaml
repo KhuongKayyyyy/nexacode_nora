@@ -81,12 +81,58 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+    - family: Ownglyph_ryuttung
+      fonts:
+        - asset: fonts/Ownglyph_ryuttung.ttf
+          weight: 400
+          style: normal
+    - family: Pretendard-Black
+      fonts:
+        - asset: fonts/Pretendard-Black.otf
+          weight: 900
+          style: normal
+    - family: Pretendard-Bold
+      fonts:
+        - asset: fonts/Pretendard-Bold.otf
+          weight: 700
+          style: normal
+    - family: Pretendard-ExtraBold
+      fonts:
+        - asset: fonts/Pretendard-ExtraBold.otf
+          weight: 800
+          style: normal
+    - family: Pretendard-ExtraLight
+      fonts:
+        - asset: fonts/Pretendard-ExtraLight.otf
+          weight: 200
+          style: normal
+    - family: Pretendard-Light
+      fonts:
+        - asset: fonts/Pretendard-Light.otf
+          weight: 300
+          style: normal
+    - family: Pretendard-Medium
+      fonts:
+        - asset: fonts/Pretendard-Medium.otf
+          weight: 500
+          style: normal
+    - family: Pretendard-Regular
+      fonts:
+        - asset: fonts/Pretendard-Regular.otf
+          weight: 400
+          style: normal
+    - family: Pretendard-SemiBold
+      fonts:
+        - asset: fonts/Pretendard-SemiBold.otf
+          weight: 600
+          style: normal
+    - family: Pretendard-Thin
+      fonts:
+        - asset: fonts/Pretendard-Thin.otf
+          weight: 100
+          style: normal
+
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

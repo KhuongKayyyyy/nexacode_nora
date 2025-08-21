@@ -13,14 +13,14 @@ class HoroscopeRecommendationSection extends StatelessWidget {
         children: [
           AppText(
             text: '22,344명이 추천했어요!',
-            fontSize: 18,
+            fontSize: 20,
             fontWeight: FontWeight.w600,
             color: Colors.black,
           ),
           SizedBox(height: 8),
           AppText(
             text: "'고마워 💙'를 가장 많이 받았어요!",
-            fontSize: 14,
+            fontSize: 16,
             fontWeight: FontWeight.w400,
             color: Colors.grey[600],
           ),

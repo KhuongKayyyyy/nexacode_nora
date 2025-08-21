@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:nora/components/AppText.dart';
 import 'package:nora/constants/ColorConstants.dart';
 import 'package:nora/application/controllers/base_controller.dart';
 
@@ -75,7 +76,14 @@ class AppBottomNavigation extends StatelessWidget {
                                 ? FontWeight.w600
                                 : FontWeight.w400,
                           ),
-                          child: Text(item.label),
+                          child: AppText(
+                            overflow: TextOverflow.ellipsis,
+                            text: item.label,
+                            fontSize: 12,
+                            fontWeight: isSelected
+                                ? FontWeight.w600
+                                : FontWeight.w400,
+                          ),
                         ),
                       ],
                     ),

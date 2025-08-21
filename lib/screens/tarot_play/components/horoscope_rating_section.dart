@@ -26,11 +26,15 @@ class HoroscopeRatingSection extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            _buildRatingOption('💙', '고마워'),
-            _buildRatingOption('💵', '힘냈다'),
-            _buildRatingOption('🍀', '좋기워'),
-            _buildRatingOption('😊', '재밌어'),
-            _buildRatingOption('😐', '아쉬워'),
+            Expanded(child: _buildRatingOption('💙', '고마워')),
+            SizedBox(width: 8),
+            Expanded(child: _buildRatingOption('💵', '힘냈다')),
+            SizedBox(width: 8),
+            Expanded(child: _buildRatingOption('🍀', '좋기워')),
+            SizedBox(width: 8),
+            Expanded(child: _buildRatingOption('😊', '재밌어')),
+            SizedBox(width: 8),
+            Expanded(child: _buildRatingOption('😐', '아쉬워')),
           ],
         ),
       ],
@@ -41,7 +45,7 @@ class HoroscopeRatingSection extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: 60,
+          width: double.infinity,
           height: 100,
           decoration: BoxDecoration(
             color: Colors.white,
@@ -49,6 +53,7 @@ class HoroscopeRatingSection extends StatelessWidget {
           ),
           child: Center(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 AppText(text: emoji, fontSize: 24),
                 SizedBox(height: 8),

@@ -6,9 +6,9 @@ class AppTheme {
     return ThemeData(
       scaffoldBackgroundColor: ColorConstants.greyColor,
       appBarTheme: AppBarTheme(
-        backgroundColor: ColorConstants.greyColor,
-        foregroundColor: Colors.black,
         elevation: 0,
+        scrolledUnderElevation: 0,
+        backgroundColor: ColorConstants.greyColor,
       ),
     );
   }
