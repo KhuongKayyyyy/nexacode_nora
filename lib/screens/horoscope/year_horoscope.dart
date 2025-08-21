@@ -1,48 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:nora/application/utils/extension/extensions.dart';
 import 'package:nora/components/AppButton.dart';
 import 'package:nora/components/AppText.dart';
 import 'package:nora/components/PlaceHolder.dart';
 import 'package:nora/constants/ColorConstants.dart';
+import 'package:nora/data/model/item.dart';
+import 'package:nora/screens/horoscope/year_horoscope_select.dart';
 import 'package:nora/screens/tarot_play/components/horoscope_comment_section.dart';
 import 'package:nora/screens/tarot_play/components/horoscope_heading.dart';
-import 'package:nora/screens/tarot_play/components/horoscope_note_section.dart';
 import 'package:nora/screens/tarot_play/components/horoscope_recommendation_section.dart';
-import 'package:nora/screens/tarot_play/tarot_play_page.dart';
 
-class TarotLandingPage extends StatelessWidget {
-  const TarotLandingPage({super.key});
+class YearHoroscope extends StatelessWidget {
+  final Item item;
+  const YearHoroscope({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
               HoroscopeHeading(
-                title: '오늘의 타로 운세',
-                subtitle: '오늘의 타로 운세를 알아보자',
-                rating: '4.9',
-                viewCount: '조회수 31만회+',
-                price: '무료',
+                title: item.title,
+                subtitle: item.subtitle,
+                rating: item.rating,
+                viewCount: item.viewCount,
+                price: item.price,
               ),
               16.y,
               AppPlaceHolder(width: double.infinity, height: 350),
               HoroscopeCommentSection(),
               16.y,
-              HoroscopeNoteSection(),
-              32.y,
+              AppPlaceHolder(width: double.infinity, height: 1000),
+              16.y,
               HoroscopeRecommendationSection(),
 
-              48.y,
+              16.y,
               AppText(
                 textAlign: TextAlign.center,
-                text: "하루에 딱 한 번,오늘의 타로 운세 카드를 뽑아보세요!",
+                text: "다가오는 2025\n언제 운이 들어오는지\n더 자세히 확인해보세요",
                 fontSize: 24,
                 fontWeight: FontWeight.w600,
                 color: ColorConstants.btnDefaultColor,
@@ -53,11 +53,11 @@ class TarotLandingPage extends StatelessWidget {
         ),
       ),
       bottomSheet: Padding(
-        padding: EdgeInsets.only(bottom: 32),
+        padding: EdgeInsets.only(bottom: 32, top: 16),
         child: AppButton(
           text: '다음',
           onTap: () {
-            Get.to(() => TarotPlayPage());
+            Get.to(() => YearHoroscopeSelect());
           },
         ),
       ),

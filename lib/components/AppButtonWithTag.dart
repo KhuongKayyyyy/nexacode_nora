@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:nora/components/AppText.dart';
+import 'package:nora/data/model/item.dart';
 
 enum TagType { newTag, hot, event }
 
 class AppButtonWithTag extends StatelessWidget {
+  final Item item;
   final String text;
   final TagType? tagType;
   final VoidCallback? onTap;
 
   const AppButtonWithTag({
     super.key,
+    required this.item,
     required this.text,
     this.tagType,
     this.onTap,
