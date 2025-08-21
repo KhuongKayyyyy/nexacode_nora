@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:nora/application/utils/extension/extensions.dart';
-import 'package:nora/components/AppButton.dart';
 import 'package:nora/components/AppText.dart';
 import 'package:nora/components/PlaceHolder.dart';
-import 'package:nora/constants/ColorConstants.dart';
 import 'package:nora/data/model/item.dart';
+import 'package:nora/screens/horoscope/components/current_basket_item.dart';
+import 'package:nora/screens/horoscope/components/payment_option.dart';
 
 class HoroscopePayment extends StatelessWidget {
   final Item item;
@@ -30,7 +30,12 @@ class HoroscopePayment extends StatelessWidget {
         child: Column(
           children: [
             // Heading section with icon and service details
-            _buildHeadingItem(),
+            CurrentBasketItem(
+              title: item.title,
+              rating: item.rating,
+              viewCount: item.viewCount,
+              price: item.price,
+            ),
 
             24.y,
 
@@ -64,20 +69,20 @@ class HoroscopePayment extends StatelessWidget {
             Expanded(
               child: ListView(
                 children: [
-                  _buildPaymentOption('10개 젤리', '3,900원'),
-                  _buildPaymentOption('30개 젤리', '9,900원'),
-                  _buildPaymentOption('50개 젤리', '14,900원'),
-                  _buildPaymentOption('100개 젤리', '29,900원'),
-                  _buildPaymentOption('150개 젤리', '39,900원'),
-                  _buildPaymentOption('300개 젤리', '79,900원'),
-                  _buildPaymentOption('500개 젤리', '129,900원'),
-                  _buildPaymentOption('700개 젤리', '179,900원'),
-                  _buildPaymentOption('1000개 젤리', '239,900원'),
-                  _buildPaymentOption('1500개 젤리', '349,900원'),
-                  _buildPaymentOption('2000개 젤리', '439,900원'),
-                  _buildPaymentOption('3000개 젤리', '639,900원'),
-                  _buildPaymentOption('5000개 젤리', '999,900원'),
-                  _buildPaymentOption('10000개 젤리', '1,899,900원'),
+                  PaymentOption(jellyAmount: '10개 젤리', price: '3,900원'),
+                  PaymentOption(jellyAmount: '30개 젤리', price: '9,900원'),
+                  PaymentOption(jellyAmount: '50개 젤리', price: '14,900원'),
+                  PaymentOption(jellyAmount: '100개 젤리', price: '29,900원'),
+                  PaymentOption(jellyAmount: '150개 젤리', price: '39,900원'),
+                  PaymentOption(jellyAmount: '300개 젤리', price: '79,900원'),
+                  PaymentOption(jellyAmount: '500개 젤리', price: '129,900원'),
+                  PaymentOption(jellyAmount: '700개 젤리', price: '179,900원'),
+                  PaymentOption(jellyAmount: '1000개 젤리', price: '239,900원'),
+                  PaymentOption(jellyAmount: '1500개 젤리', price: '349,900원'),
+                  PaymentOption(jellyAmount: '2000개 젤리', price: '439,900원'),
+                  PaymentOption(jellyAmount: '3000개 젤리', price: '639,900원'),
+                  PaymentOption(jellyAmount: '5000개 젤리', price: '999,900원'),
+                  PaymentOption(jellyAmount: '10000개 젤리', price: '1,899,900원'),
                 ],
               ),
             ),
@@ -147,94 +152,6 @@ class HoroscopePayment extends StatelessWidget {
                 color: Colors.blue,
               ),
             ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Container _buildHeadingItem() {
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 4,
-            offset: Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          AppPlaceHolder(width: 60, height: 60),
-          16.x,
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AppText(
-                  text: item.title,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black,
-                ),
-                4.y,
-                Row(
-                  children: [
-                    AppText(
-                      text: item.rating,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.grey[600],
-                    ),
-                    8.x,
-                    AppText(
-                      text: item.viewCount,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.grey[600],
-                    ),
-                    8.x,
-                    AppText(
-                      text: item.price,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.grey[600],
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildPaymentOption(String jellyAmount, String price) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 8),
-      child: Row(
-        children: [
-          AppPlaceHolder(width: 24, height: 24),
-          16.x,
-          AppText(
-            text: jellyAmount,
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
-            color: Colors.black,
-          ),
-          const Spacer(),
-          AppButton(
-            text: price,
-            onTap: () {},
-            width: 100,
-            height: 30,
-            fontSize: 12,
           ),
         ],
       ),

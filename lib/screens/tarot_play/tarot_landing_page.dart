@@ -6,6 +6,7 @@ import 'package:nora/components/AppButton.dart';
 import 'package:nora/components/AppText.dart';
 import 'package:nora/components/PlaceHolder.dart';
 import 'package:nora/constants/ColorConstants.dart';
+import 'package:nora/data/model/item.dart';
 import 'package:nora/screens/tarot_play/components/horoscope_comment_section.dart';
 import 'package:nora/screens/tarot_play/components/horoscope_heading.dart';
 import 'package:nora/screens/tarot_play/components/horoscope_note_section.dart';
@@ -13,7 +14,8 @@ import 'package:nora/screens/tarot_play/components/horoscope_recommendation_sect
 import 'package:nora/screens/tarot_play/tarot_play_page.dart';
 
 class TarotLandingPage extends StatelessWidget {
-  const TarotLandingPage({super.key});
+  Item? item;
+  TarotLandingPage({super.key, this.item});
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +27,11 @@ class TarotLandingPage extends StatelessWidget {
           child: Column(
             children: [
               HoroscopeHeading(
-                title: '오늘의 타로 운세',
-                subtitle: '오늘의 타로 운세를 알아보자',
-                rating: '4.9',
-                viewCount: '조회수 31만회+',
-                price: '무료',
+                title: item?.title ?? '오늘의 타로 운세',
+                subtitle: item?.subtitle ?? '오늘의 타로 운세를 알아보자',
+                rating: item?.rating ?? '4.9',
+                viewCount: item?.viewCount ?? '조회수 31만회+',
+                price: item?.price ?? '무료',
               ),
               16.y,
               AppPlaceHolder(width: double.infinity, height: 350),

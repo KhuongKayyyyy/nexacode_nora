@@ -6,6 +6,7 @@ import 'package:nora/constants/ColorConstants.dart';
 import 'package:nora/constants/NavIds.dart';
 import 'package:nora/constants/RouteName.dart';
 import 'package:nora/screens/homepage/inbox/inbox_page.dart';
+import 'package:nora/screens/jelly/jelly_landing_page.dart';
 
 class HomeNavigationSection extends StatelessWidget {
   const HomeNavigationSection({super.key});
@@ -43,7 +44,9 @@ class HomeNavigationSection extends StatelessWidget {
             title: "젤리나라",
             hasNotification: true,
             notificationCount: 1,
-            onTap: () {},
+            onTap: () {
+              Get.to(() => JellyLandingPage());
+            },
           ),
         ],
       ),

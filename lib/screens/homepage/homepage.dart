@@ -11,8 +11,10 @@ import 'package:nora/screens/homepage/components/day_count_item.dart';
 import 'package:nora/screens/homepage/components/home_navigation_section.dart';
 import 'package:nora/screens/homepage/components/function_secion.dart';
 import 'package:nora/screens/horoscope/day_horoscope.dart';
+import 'package:nora/screens/horoscope/friendship_horoscope.dart';
 import 'package:nora/screens/horoscope/month_horoscope.dart';
 import 'package:nora/screens/horoscope/year_horoscope.dart';
+import 'package:nora/screens/tarot_play/tarot_landing_page.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -90,34 +92,85 @@ class _HomepageState extends State<Homepage> {
                       },
                     ),
                     Item(
-                      title: "남은 연애 횟수",
+                      title: "둘 중에 뭐 먹지?",
                       subtitle: "앞으로 몇 번의 연애가 더 기다리고 있을까요?\n나의 연애 운명을 확인해보세요",
                       price: "900젤리",
                       rating: "4.7",
                       viewCount: "조회수 22만회+",
                       tagType: TagType.hot,
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(
+                          () => TarotLandingPage(
+                            item: Item(
+                              title: "둘 중에 뭐 먹지?",
+                              subtitle:
+                                  "앞으로 몇 번의 연애가 더 기다리고 있을까요?\n나의 연애 운명을 확인해보세요",
+                              price: "900젤리",
+                              rating: "4.7",
+                              viewCount: "조회수 22만회+",
+                            ),
+                          ),
+                        );
+                      },
                     ),
                     Item(
-                      title: "사주로 보는 궁합",
+                      title: "둘 중에 뭐먹지?",
                       subtitle: "사주로 분석하는 나와 그 사람의 궁합\n운명적인 만남인지 확인해보세요",
                       price: "1,200젤리",
                       rating: "4.9",
                       viewCount: "조회수 35만회+",
                       tagType: null,
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(
+                          () => TarotLandingPage(
+                            item: Item(
+                              title: "둘 중에 뭐먹지?",
+                              subtitle:
+                                  "사주로 분석하는 나와 그 사람의 궁합\n운명적인 만남인지 확인해보세요",
+                              price: "1,200젤리",
+                              rating: "4.9",
+                              viewCount: "조회수 35만회+",
+                            ),
+                          ),
+                        );
+                        Get.to(
+                          () => TarotLandingPage(
+                            item: Item(
+                              title: "둘 중에 뭐먹지?",
+                              subtitle:
+                                  "사주로 분석하는 나와 그 사람의 궁합\n운명적인 만남인지 확인해보세요",
+                              price: "1,200젤리",
+                              rating: "4.9",
+                              viewCount: "조회수 35만회+",
+                            ),
+                          ),
+                        );
+                      },
                     ),
                     Item(
-                      title: "사주로 보는 심화 재회운",
+                      title: "내게 맞는 부업 찾기",
                       subtitle: "헤어진 그 사람과 다시 만날 수 있을까요?\n재회 가능성을 사주로 알아보세요",
                       price: "1,500젤리",
                       rating: "4.6",
                       viewCount: "조회수 15만회+",
                       tagType: null,
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(
+                          () => MonthHoroscope(
+                            item: Item(
+                              title: "내게 맞는 부업 찾기",
+                              subtitle:
+                                  "헤어진 그 사람과 다시 만날 수 있을까요?\n재회 가능성을 사주로 알아보세요",
+                              price: "1,500젤리",
+                              rating: "4.6",
+                              viewCount: "조회수 15만회+",
+                            ),
+                          ),
+                        );
+                      },
                     ),
                     Item(
-                      title: "절대 결혼하면 안되는 상대",
+                      title: "내게 맞는 부업 찾기",
                       subtitle: "결혼 전에 꼭 확인해야 할 사주 궁합\n피해야 할 상대를 미리 알아보세요",
                       price: "1,800젤리",
                       rating: "4.8",
@@ -532,6 +585,9 @@ class _HomepageState extends State<Homepage> {
                     rating: '4.9',
                     viewCount: '조회수 25만회+',
                   ),
+                  onTap: () {
+                    Get.to(() => FriendshipHoroscope());
+                  },
                 ),
                 16.y,
                 FunctionSection(
@@ -646,7 +702,19 @@ class _HomepageState extends State<Homepage> {
                       rating: "4.8",
                       viewCount: "조회수 45만회+",
                       tagType: null,
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(
+                          () => TarotLandingPage(
+                            item: Item(
+                              title: "YES/NO 타로",
+                              subtitle: "궁금한 질문에 대한 명확한 답\n예 또는 아니오로 답하는 타로",
+                              price: "500젤리",
+                              rating: "4.8",
+                              viewCount: "조회수 45만회+",
+                            ),
+                          ),
+                        );
+                      },
                     ),
                     Item(
                       title: "신년 택 월운세",
